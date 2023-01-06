@@ -15,3 +15,6 @@ class TestZone:
         assert b == [[" ", " ", " "],
                      [" ", " ", " "],
              [" ", " ", " "]]
+
+    # def test_sym(self):
+    #     pass

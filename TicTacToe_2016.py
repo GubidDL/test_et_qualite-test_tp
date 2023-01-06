@@ -48,27 +48,25 @@ def startGamming(board, symbol_1, symbol_2, count):
     elif count % 2 == 1:
         player = symbol_2
     print("Player "+ player + ", it is your turn. ")
-    row = int(input("Pick a row:"
-                    "[upper row: enter 0, middle row: enter 1, bottom row: enter 2]:"))
-    column = int(input("Pick a column:"
-                       "[left column: enter 0, middle column: enter 1, right column enter 2]"))
+    row_message = """Pick a row: 
+                    [upper row: enter 0, middle row: enter 1, bottom row: enter 2]:"""
+    column_message = """ Pick a column:
+                       [left column: enter 0, middle column: enter 1, right column enter 2] """
+    row = int(input(row_message))
+    column = int(input(column_message))
 
 
     # Check if players' selection is out of range
     while (row > 2 or row < 0) or (column > 2 or column < 0):
         outOfBoard(row, column)
-        row = int(input("Pick a row[upper row:"
-                        "[enter 0, middle row: enter 1, bottom row: enter 2]:"))
-        column = int(input("Pick a column:"
-                           "[left column: enter 0, middle column: enter 1, right column enter 2]"))
+        row = int(input(row_message))
+        column = int(input(column_message))
 
         # Check if the square is already filled
     while (board[row][column] == symbol_1)or (board[row][column] == symbol_2):
         filled = illegal(board, symbol_1, symbol_2, row, column)
-        row = int(input("Pick a row[upper row:"
-                        "[enter 0, middle row: enter 1, bottom row: enter 2]:"))
-        column = int(input("Pick a column:"
-                            "[left column: enter 0, middle column: enter 1, right column enter 2]"))    
+        row = int(input(row_message))
+        column = int(input(column_message))    
         
     # Locates player's symbol on the board
     if player == symbol_1:
@@ -107,7 +105,7 @@ def isFull(board, symbol_1, symbol_2):
 
 def outOfBoard(row, column):
 # This function tells the players that their selection is out of range
-    print("Out of boarder. Pick another one. ")
+    print("Out of board. Pick another one. ")
     
     
 
